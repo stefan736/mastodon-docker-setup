@@ -30,4 +30,11 @@ docker-compose up -d
 ```bash
 cd docker
 docker-compose down
+```
+
+### Be the owner and get access to sidekiq and pghero
+```bash
+cd docker
+docker-compose run --rm mastodon-web bin/tootctl accounts modify stefan --role Owner
+```
 
