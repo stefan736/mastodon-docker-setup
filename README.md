@@ -7,13 +7,14 @@ This repository contains basic config files and settings for deploying a mastodo
 	- [docker/mastodon/mastodon/.env.production](docker/mastodon/mastodon/.env.production)
 	
 ## To initialize the setup with secrets etc.
-`bash
+```bash
+cd docker
 SECRET_KEY_BASE=$(docker-compose run --rm mastodon-web bundle exec rake secret)
-sed -i -e "s/SECRET_KEY_BASE=/&${SECRET_KEY_BASE}/" .env.production
+sed -i -e "s/SECRET_KEY_BASE=/&${SECRET_KEY_BASE}/" ./mastodon/mastodon/.env.production
 OTP_SECRET=$(docker-compose run --rm web bundle exec rake secret)
-$ sed -i -e "s/OTP_SECRET=/&${OTP_SECRET}/" .env.production
+$ sed -i -e "s/OTP_SECRET=/&${OTP_SECRET}/" ./mastodon/mastodon/.env.production
 docker-compose run --rm mastodon-web bundle exec rake mastodon:webpush:generate_vapid_key
-sudo nano ./.env.production
+sudo nano ./mastodon/mastodon/.env.production
 # do your changes
-sudo chown -R 991:991 public/system
-`
+sudo chown -R 991:991 mastodon/mastodon/public/system
+```
