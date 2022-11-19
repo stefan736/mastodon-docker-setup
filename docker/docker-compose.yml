@@ -90,8 +90,6 @@ services:
     image: caddy:2
     container_name: caddy
     networks:
-      - synapse-web
-      - nextcloud-web
       - mastodon-web
     restart: always
     ports:
