@@ -18,3 +18,16 @@ sudo nano ./mastodon/mastodon/.env.production
 # do your changes
 sudo chown -R 991:991 mastodon/mastodon/public/system
 ```
+
+## start everything
+```bash
+cd docker
+docker-compose up -d
+```
+
+
+### stop everything
+```bash
+cd docker
+docker-compose down
+
